@@ -1,0 +1,9 @@
+.header {
+  background-color: #2a414f;
+  padding: 8px 0px;
+  position: sticky;
+  top: 0;
+}
+.brand-title {
+  color: orange;
+}
