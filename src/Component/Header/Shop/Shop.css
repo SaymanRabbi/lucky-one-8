@@ -9,6 +9,11 @@
   margin-top: 100px;
   padding: 0px 20px;
 }
+.cart {
+  position: sticky;
+  top: 84px;
+  height: 500px;
+}
 @media only screen and (max-width: 900px) {
   .product-container {
     grid-template-columns: repeat(2, 1fr);
