@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../../../Cart/Cart';
 import Product from '../../Product/Product';
-import './Shop.css'
+import './Shop.css';
+import Swal from 'sweetalert2'
+
 
 const Shop = () => {
     // ----state for producut
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-    console.log(cart);
     useEffect(() => {
         fetch('data.json').then(res=>res.json()).then(data=>setProducts(data))
     }, [])
@@ -16,6 +17,13 @@ const Shop = () => {
         if (cart.length>0) {
             const newcart = cart[Math.floor(Math.random() * cart.length)];
             setCart([newcart]) ;
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Donot Have Any Product'
+              })
         }
     }
     const clickHandelar = (cartProducts) => {
@@ -27,11 +35,19 @@ const Shop = () => {
                 setCart(newCart)
             }
             else {
-                alert("Maximam Adeded Product!!")
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Maximum Added Producut'
+                  })
             }
         }
         else {
-            alert("Alredy Adeded This!!")
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Already Added!'
+              })
         }
     }
     // -----clear product-----
