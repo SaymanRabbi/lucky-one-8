@@ -1,7 +1,6 @@
 # Wecome To Bike DB website
 
-Website Live Link Was
-[Bike DB](https://loquacious-vacherin-c2c129.netlify.app/).
+Website Live Link Was [Bike DB](https://curious-sprinkles-ed6823.netlify.app/).
 
 ## Code Link
 
