@@ -9,7 +9,7 @@ const Cart = ({ cart,randomProduct,chosseAgain,clearSpecific }) => {
         <div className='cart-container'>
             <h2 className='text-danger d-flex justify-content-center align-items-center'>Cart<FontAwesomeIcon className='text-danger fs-4 ms-1' icon={faShop} /></h2>
             {
-                cart.map(Product=><CartData data={Product} key={Product.id}clearSpecific={clearSpecific}></CartData>)
+                cart?.map(Product=><CartData data={Product} key={Product.id}clearSpecific={clearSpecific}></CartData>)
             }
             <div className='button-container'>
             <button className='cart-button' onClick={() => { randomProduct() }}>Choose One</button>
