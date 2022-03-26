@@ -4,16 +4,16 @@ import Product from '../../Product/Product';
 import './Shop.css'
 
 const Shop = () => {
+    // ----state for producut
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
     useEffect(() => {
         fetch('data.json').then(res=>res.json()).then(data=>setProducts(data))
     }, [])
+    // -----random pick a product---
     const randomProduct = () => {
-        const newcart = cart[Math.floor(Math.random() * cart.length)];
-        // console.log(newcart);
-        const random = [newcart]
-        setCart(random) ;
+        const newcart = cart.length>0 ? cart[Math.floor(Math.random() * cart.length)] : [];
+        setCart([newcart]) ;
     }
     const clickHandelar = (cartProducts) => {
         // console.log(setProducuts);
@@ -24,12 +24,21 @@ const Shop = () => {
                 setCart(newCart)
             }
             else {
-                alert("maximam adeded")
+                alert("Maximam Adeded Product!!")
             }
         }
         else {
-            alert("Alredy Adeded")
+            alert("Alredy Adeded This!!")
         }
+    }
+    // -----clear product-----
+    const chosseAgain = () => {
+        setCart([]);
+    }
+    // clear specific product-------
+    const clearSpecific = (pd) => {
+        const clearThis = cart.filter(product => product.id !== pd.id);
+        setCart(clearThis)
     }
     return (
         <div className='shop-container'>
@@ -40,7 +49,7 @@ const Shop = () => {
             </div>
             <div className='cart'>
                 
-                    <Cart cart={cart} randomProduct={randomProduct} ></Cart>
+                    <Cart cart={cart} randomProduct={randomProduct} chosseAgain={chosseAgain} clearSpecific={clearSpecific}></Cart>
                 
             </div>
         </div>
