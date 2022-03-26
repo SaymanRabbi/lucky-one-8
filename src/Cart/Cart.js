@@ -7,7 +7,7 @@ const Cart = ({ cart,randomProduct,chosseAgain,clearSpecific }) => {
       
     return (
         <div className='cart-container'>
-            <h2 className='text-center text-danger'>Cart<FontAwesomeIcon className='text-danger fs-4 ms-1' icon={faShop} /></h2>
+            <h2 className='text-danger d-flex justify-content-center align-items-center'>Cart<FontAwesomeIcon className='text-danger fs-4 ms-1' icon={faShop} /></h2>
             {
                 cart.map(Product=><CartData data={Product} key={Product.id}clearSpecific={clearSpecific}></CartData>)
             }
